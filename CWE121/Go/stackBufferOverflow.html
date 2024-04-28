@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stack Buffer Overflow Example</title>
+    </head>
+    <body>
+        <h1>Stack Buffer Overflow Example</h1>
+        <p id="output">Look in console log</p>
+        <script src="wasm_exec.js"></script>
+        <script>
+            const go = new Go(); // Defined in wasm_exec.js
+            WebAssembly.instantiateStreaming(fetch('stackBufferOverflow.wasm'), go.importObject).then((result) => {
+                go.run(result.instance);
+            }).catch((err) => {
+                console.error("Failed to load WebAssembly module:", err);
+            });
+        </script>
+    </body>
+</html>

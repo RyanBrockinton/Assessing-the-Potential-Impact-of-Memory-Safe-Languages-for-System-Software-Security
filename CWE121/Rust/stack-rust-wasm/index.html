@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import init, { stack_test } from './pkg/stack_rust_wasm.js';
+        async function run() {
+            await init();
+            let arg = "a_20bytes_1234567890";
+            //let arg = "a_16bytes_123456";
+            console.log("arg: ", arg);
+            let result = stack_test(arg);
+            result.forEach(str => console.log(str));
+        }
+        run();
+    </script>
+</body>
+</html>

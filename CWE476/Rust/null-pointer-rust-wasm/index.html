@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import init, { safe_rust_function, unsafe_rust_function } from './pkg/null_pointer_rust_wasm.js';
+        await init();
+        let result = safe_rust_function();
+        result.forEach(str => console.log(str));
+        let result2 = unsafe_rust_function();
+        result2.forEach(str => console.log(str));
+    </script>
+</body>
+</html>
